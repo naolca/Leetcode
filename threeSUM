@@ -1,0 +1,30 @@
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums=sorted(nums)
+        result=[]
+        dictionary={}
+        if len(nums)<=2:
+            return []
+        elif len(nums)==3:
+            if sum(nums)==0:
+                return [nums]
+            else:
+                return []
+        else: 
+            for i in range(len(nums)-1):
+                l,r=0,len(nums)-1
+                while l<i and i<r:
+                    s=nums[i]+nums[l]+nums[r]
+                    lst=[nums[i],nums[l],nums[r]]
+                    if s==0:
+                        if str(lst) not in dictionary:
+                            result.append(lst)
+                            dictionary[str(lst)]=True
+                        l+=1
+                        r-=1
+                    elif s<0:l+=1
+                    elif s>0:r-=1
+        return result
+
+            
+            
