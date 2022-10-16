@@ -1,0 +1,14 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        dictionary={}
+        for element in nums:
+            if element not in dictionary:
+                dictionary[element]=1
+            else:
+                dictionary[element]+=1
+        new=[]
+        for key in dictionary:
+            if dictionary[key]> len(nums)//3:
+                new.append(key)
+        return new
+        
