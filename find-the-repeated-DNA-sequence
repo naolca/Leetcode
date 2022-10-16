@@ -1,0 +1,21 @@
+class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        i=0
+        j=10
+        dictionary={}
+        if len(s)==10:
+            return []
+        while j<=len(s):
+            if s[i:j] in dictionary:
+                dictionary[s[i:j]]+=1
+            else:
+                dictionary[s[i:j]]=1
+            i+=1
+            j+=1
+        arr=[]
+        
+        for key in dictionary:
+            if dictionary[key]>1:
+                arr.append(key)
+        return arr
+            
