@@ -1,0 +1,11 @@
+class Solution:
+    def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
+        lst=[]
+        for interval in ranges:
+            for element in range(interval[0],interval[1]+1):
+                lst.append(element)
+            lst.append(interval[1])
+        for element in range(left,right+1):
+            if element not in lst:
+                return False
+        return True
