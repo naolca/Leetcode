@@ -1,0 +1,9 @@
+class Solution:
+    def titleToNumber(self, columnTitle: str) -> int:
+        lst=[1,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+        sum=0
+        i=len(columnTitle)-1
+        for string in columnTitle:
+            sum=sum+(lst.index(string)*(26**i))
+            i-=1
+        return sum
